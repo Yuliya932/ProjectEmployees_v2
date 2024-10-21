@@ -54,6 +54,14 @@
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
             <td th:text="${user.email}"></td>
+
+            <td>
+
+                <a th:href="@{/makeAdmin(userId=${user.id})}" class="btn btn-secondary ml-2">Make ADMIN</a>
+
+                <a th:href="@{/makeUser(userId=${user.id})}" class="btn btn-secondary ml-2">Make USER</a>
+            </td>
+
         </tr>
         </tbody>
     </table>

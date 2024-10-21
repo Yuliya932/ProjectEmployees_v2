@@ -36,13 +36,29 @@ public class UserServiceImpl implements UserService{
         //encrypt the password using spring security
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
-        Role role = roleRepository.findByName("ROLE_ADMIN");
-        if(role == null){
-            role = checkRoleExist();
+//        Role role = roleRepository.findByName("ROLE_ADMIN");
+//        if(role == null){
+//            role = checkRoleExist();
+//        }
+//        user.setRoles(Arrays.asList(role));
+//        userRepository.save(user);
+        Role role = new Role();
+        if(roleRepository.findByName("ROLE_ADMIN") == null
+            && roleRepository.findByName("USER")== null
+            && roleRepository.findByName("READ_ONLY")== null) {
+            role.setName("ROLE_ADMIN");
+            user.setRoles(Arrays.asList(role));
+            userRepository.save(user);
+            roleRepository.save(role);
+            } else {
+                role.setName("READ_ONLY");
+                user.setRoles(Arrays.asList(role));
+                userRepository.save(user);
+                roleRepository.save(role);
+
+            }
         }
-        user.setRoles(Arrays.asList(role));
-        userRepository.save(user);
-    }
+
 
     @Override
     public User findUserByEmail(String email){
@@ -65,6 +81,8 @@ public class UserServiceImpl implements UserService{
         userDto.setEmail(user.getEmail());
         return userDto;
     }
+
+    //user.setRoles(Arrays.asList(role));
 
     private Role checkRoleExist(){
         Role role = new Role();

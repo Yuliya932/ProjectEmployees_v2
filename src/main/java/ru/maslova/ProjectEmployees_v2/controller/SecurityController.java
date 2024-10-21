@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.maslova.ProjectEmployees_v2.dto.UserDto;
+import ru.maslova.ProjectEmployees_v2.entity.Employee;
 import ru.maslova.ProjectEmployees_v2.entity.User;
 import ru.maslova.ProjectEmployees_v2.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -70,5 +72,9 @@ public class SecurityController {
         List<UserDto> users = userService.findAllUsers();
         model.addAttribute("users", users);
         return "users";
+
     }
+
+
+
 }

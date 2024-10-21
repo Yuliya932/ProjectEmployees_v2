@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ru.maslova.ProjectEmployees_v2.entity.Bonus;
+import ru.maslova.ProjectEmployees_v2.entity.BonusCard;
 import ru.maslova.ProjectEmployees_v2.entity.Employee;
 import ru.maslova.ProjectEmployees_v2.repository.BonusRepository;
 import ru.maslova.ProjectEmployees_v2.repository.EmployeeRepository;
@@ -20,6 +21,7 @@ import java.util.Optional;
 public class BonusController {
     @Autowired
     private BonusRepository bonusRepository;
+    private EmployeeRepository employeeRepository;
 
     @GetMapping("/list-bonus")
     public ModelAndView getAllBonus(){
@@ -56,5 +58,16 @@ public class BonusController {
         return "redirect:/list-bonus";
     }
 
-
+// контроллер бонусной карты
+@GetMapping("/bonusCard")
+public ModelAndView addBobusCardForm(@RequestParam Long employeeId){
+        ModelAndView mav = new ModelAndView("add-bonus-card-form");
+        Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
+        Employee employee = new Employee();
+        if(optionalEmployee.isPresent()){
+            employee = optionalEmployee.get();
+        }
+        mav.addObject("employee", employee);
+        return mav;
+    }
 }

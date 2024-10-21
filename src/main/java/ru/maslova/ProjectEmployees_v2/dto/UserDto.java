@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.maslova.ProjectEmployees_v2.entity.Role;
+import ru.maslova.ProjectEmployees_v2.entity.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -27,5 +29,6 @@ public class UserDto {
 
     @NotEmpty(message = "Password should be empty")
     private String password;
+
 
 }

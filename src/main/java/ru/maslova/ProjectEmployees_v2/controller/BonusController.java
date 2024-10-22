@@ -71,7 +71,9 @@ public class BonusController {
 //        mav.addObject("employee", employee);
 //        return mav;
 //    BonusCard bonusCard = new BonusCard();
-//CalculateBonusCardService(bonusCard.getEmployee(),bonusCard.getBonus());
 //
+//
+//    CalculateBonusCardService calculateBonusCardService = new CalculateBonusCardService();
+//    calculateBonusCardService.calculate(bonusCard,365);
 //    }
 }

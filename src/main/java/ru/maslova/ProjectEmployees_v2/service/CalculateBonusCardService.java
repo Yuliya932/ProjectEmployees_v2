@@ -20,6 +20,7 @@ public class CalculateBonusCardService implements BonusService {
         } else {
             yearDays = 365;
         }
+        workDays = 365;
 
         return bonusCard.getEmployee().getSalary() * yearDays * bonusCard.getBonus().getCoefficient()/workDays;
 

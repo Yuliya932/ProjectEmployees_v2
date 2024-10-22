@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Employee Management System</title>
@@ -45,7 +45,10 @@
 <div class="container">
 
     <hr/>
+
     <a th:href="@{/addBonusForm}" class="btn btn-primary">Add  Position bonus </a>
+
+
     <br/><br/>
     <table class="table table-bordered table-striped" id="bonusTable">
 

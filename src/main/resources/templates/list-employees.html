@@ -37,6 +37,9 @@
                     <a class="nav-link active" aria-current="page" th:href="@{/list-bonus}">Position Bonus</a>
                 </li>
         </div>
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+            <button type="button" class="btn btn-dark"><span sec:authentication="name">Logged user</span></button>
+        </li>
     </div>
 </nav>
 <div class="container">

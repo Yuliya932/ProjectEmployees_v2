@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Employee Management System</title>
@@ -29,7 +29,24 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" th:href="@{/about}">AboutUs</a>
                 </li>
+                <div sec:authorize="isAuthenticated()">
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/list}">Employees</a>
+                </li>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/list-bonus}">Position Bonus</a>
+                </li>
+
+
+                </div>
         </div>
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+        <button type="button" class="btn btn-dark"><span sec:authentication="name">Logged user</span></button>
+        </li>
+
     </div>
 </nav>
 <br/><br/>

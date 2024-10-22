@@ -13,6 +13,7 @@ import ru.maslova.ProjectEmployees_v2.entity.BonusCard;
 import ru.maslova.ProjectEmployees_v2.entity.Employee;
 import ru.maslova.ProjectEmployees_v2.repository.BonusRepository;
 import ru.maslova.ProjectEmployees_v2.repository.EmployeeRepository;
+import ru.maslova.ProjectEmployees_v2.service.CalculateBonusCardService;
 
 import java.util.Optional;
 
@@ -59,15 +60,18 @@ public class BonusController {
     }
 
 // контроллер бонусной карты
-@GetMapping("/bonusCard")
-public ModelAndView addBobusCardForm(@RequestParam Long employeeId){
-        ModelAndView mav = new ModelAndView("add-bonus-card-form");
-        Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
-        Employee employee = new Employee();
-        if(optionalEmployee.isPresent()){
-            employee = optionalEmployee.get();
-        }
-        mav.addObject("employee", employee);
-        return mav;
-    }
+//@GetMapping("/bonusCard")
+//public ModelAndView addBobusCardForm(@RequestParam Long employeeId){
+//        ModelAndView mav = new ModelAndView("add-bonus-card-form");
+//        Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
+//        Employee employee = new Employee();
+//        if(optionalEmployee.isPresent()){
+//            employee = optionalEmployee.get();
+//        }
+//        mav.addObject("employee", employee);
+//        return mav;
+//    BonusCard bonusCard = new BonusCard();
+//CalculateBonusCardService(bonusCard.getEmployee(),bonusCard.getBonus());
+//
+//    }
 }
